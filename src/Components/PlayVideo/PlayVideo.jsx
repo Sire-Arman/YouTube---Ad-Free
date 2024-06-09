@@ -8,7 +8,7 @@ import jack from "../../assets/jack.png";
 import Comment from "./Comment";
 import { Link, useParams } from "react-router-dom";
 import { API_KEY } from "../../data";
-import axios from "axios";
+// import axios from "axios";
 import { converter } from "../../data";
 import moment from "moment";
 
@@ -24,25 +24,29 @@ function PlayVideo() {
 
   const fetch_channel_data= async ()=>{
     const channel_url =`https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&id=${channelId}&key=${API_KEY}`
-    const resp2 = await axios.get(channel_url);
-    setChannelData(resp2.data.items);
+    // const resp2 = 
+    await fetch(channel_url).then(res=>res.json()).then(data=>setChannelData(data.items));
+    // setChannelData(resp2.data.items);
     // console.log(channelData)
   }
 
 
   const fetch_comment_data = async ()=>{
     const comment_url = `https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet%2Creplies&videoId=${videoId}&key=${API_KEY}`
-    const resp3 = await axios.get(comment_url);
-    setCommentData(resp3.data.items);
+    // const resp3 = await axios.get(comment_url);
+    // setCommentData(resp3.data.items);
+    await fetch(comment_url).then(res=>res.json()).then(data=>setCommentData(data.items));
     // console.log(commentData);
   }
 
   const fetch_video_data = async () => {
     const video_id_url = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=${videoId}&maxResults=50&key=${API_KEY}`;
-    const resp = await axios.get(video_id_url);
-    const newData = resp.data;
-    setApiData(newData.items);
-    setChannelId(newData.items[0].snippet.channelId);
+    // const resp = await axios.get(video_id_url);
+    // const newData = resp.data;
+    // setApiData(newData.items);
+    await fetch(video_id_url).then(res=>res.json()).then(data=>{setApiData(data.items)
+      setChannelId(data.items[0].snippet.channelId);
+    });
     // console.log(channelId)
   };
 
