@@ -29,7 +29,7 @@ const Navbar = (props) => {
       </div>
 
       <div className="nav-right flex-div">
-        <img src={upload_icon} alt="" /><img src={more_icon} alt="" /><img src={notification_icon} alt="" /><img  className="user-icon"src={profile_icon} alt="" />
+        <img src={upload_icon} alt="" /><img src={more_icon} alt="" /><img src={notification_icon} alt="" /><a href="https://www.linkedin.com/in/arman-siddiqui-07495a226/"><img className="user-icon"src={profile_icon} alt="" /></a>
       </div>
     </nav>
   )
