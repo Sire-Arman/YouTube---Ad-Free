@@ -1,17 +1,18 @@
 import React, { useState } from 'react'
-import './Home.css'
+import './Search.css'
 import Sidebar from '../../Components/Sidebar/Sidebar'
-import Feed from '../../Components/Feed/Feed'
-const Home = ({sidebar}) => {
+import SearchFeed from '../../Components/SearchFeed/SearchFeed'
+const Search = ({sidebar, search, setSearch}) => {
   const [category, setCategory] = useState(0);
+  
   return (
     <>
    <Sidebar sidebar={sidebar} category={category} setCategory={setCategory}/>
    <div className={`container ${sidebar?"":"large-container"}`}>
-    <Feed category={category} />
+    <SearchFeed category={category} search={search} setSearch={setSearch}/>
    </div>
     </>
   )
 }
 
-export default Home
+export default Search

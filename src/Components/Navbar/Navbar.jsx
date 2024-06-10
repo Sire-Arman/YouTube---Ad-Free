@@ -42,7 +42,7 @@ const Navbar = ({setSidebar, setSearch}) => {
         <div className="search-box flex-div">
 
         <input type="text" placeholder='Search' value={keywords} onChange={(event)=>setKeywords(event.target.value)} />
-        <img onClick={handleSearch} src={search_icon} alt="" />
+        <Link to={'/search'}><img onClick={handleSearch} src={search_icon} alt="" /></Link>
         </div>
       </div>
 

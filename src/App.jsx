@@ -3,6 +3,7 @@ import Navbar from './Components/Navbar/Navbar'
 import Home from './Pages/Home/Home'
 import Video from './Pages/Video/Video'
 import {Routes, Route} from 'react-router-dom'
+import Search from './Pages/Search/Search'
 
 function App() {
   const [sidebar, setSidebar] = useState(true)
@@ -12,7 +13,8 @@ function App() {
     <>
       < Navbar setSidebar={setSidebar} setSearch={setSearch} />
       <Routes>
-        <Route path="/" element = {<Home sidebar={sidebar} search={search} setSearch={setSearch}/>} />
+        <Route path="/" element = {<Home sidebar={sidebar} />} />
+        <Route path="/search" element = {<Search sidebar={sidebar} search={search} setSearch={setSearch}/>} />
         <Route path="/video/:categoryId/:videoId" element = {<Video />} />
       </Routes>
     </>

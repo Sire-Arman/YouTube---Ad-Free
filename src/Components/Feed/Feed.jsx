@@ -6,7 +6,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-const Feed = ({ category,search, setSearch}) => {
+const Feed = ({ category}) => {
   const [data, setData] = useState([]);
   const fetchData = async () => {
     const video_list_url = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=US&videoCategoryId=${category}&key=${API_KEY}`;
@@ -15,11 +15,6 @@ const Feed = ({ category,search, setSearch}) => {
     setData(newData.items);
     // console.log(data[0]);
   };
-
-  useEffect(()=>{
-    setData(search);
-    // console.log("triggered")
-  },[search])
 
   useEffect(() => {
     fetchData();
@@ -38,7 +33,7 @@ const Feed = ({ category,search, setSearch}) => {
             img={item.snippet.thumbnails.high}
             title={item.snippet.title}
             channel={item.snippet.channelTitle}
-            views={item.statistics?item.statistics.viewCount:""}
+            views={item.statistics.viewCount}
             time={item.snippet.publishedAt}
           />
         );
