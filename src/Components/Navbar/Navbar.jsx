@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './Navbar.css'
 import menu_icon from '../../assets/menu.png'
 import logo from '../../assets/logo.png'
@@ -8,9 +8,26 @@ import more_icon from '../../assets/more.png'
 import notification_icon from '../../assets/notification.png'
 import profile_icon from '../../assets/jack.png'
 import { Link } from 'react-router-dom'
-const Navbar = (props) => {
-  function handleClick(){
-    props.setSidebar((prev)=>{
+import { API_KEY } from '../../data'
+import axios from 'axios'
+const Navbar = ({setSidebar, setSearch}) => {
+  const [keywords, setKeywords] = useState("");
+
+  const  fetch_search_data = async()=>{
+    const search_url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&order=viewCount&q=${keywords}&regionCode=US&safeSearch=none&key=${API_KEY}`;
+    const resp = await axios.get(search_url);
+    const newData = resp.data;
+    setSearch(newData.items);
+    // console.log(newData.items);
+  }
+
+  const handleSearch = ()=>{
+    fetch_search_data();
+  }
+
+
+ function handleClick(){
+    setSidebar((prev)=>{
       return !prev;
     })
   }
@@ -23,8 +40,9 @@ const Navbar = (props) => {
       </div>
       <div className="nav-middle flex-div">
         <div className="search-box flex-div">
-        <input type="text" placeholder='Search' />
-        <img src={search_icon} alt="" />
+
+        <input type="text" placeholder='Search' value={keywords} onChange={(event)=>setKeywords(event.target.value)} />
+        <img onClick={handleSearch} src={search_icon} alt="" />
         </div>
       </div>
 

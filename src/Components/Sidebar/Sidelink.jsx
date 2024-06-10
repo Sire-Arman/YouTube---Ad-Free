@@ -6,7 +6,7 @@ function Sidelink(props) {
   return (
     <div className={`side-link ${props.category===props.id?"active":""}`} onClick={()=>props.changeCategory(props.id)}>
       <img src={props.img} alt="" />
-      <p>{props.name}</p>
+      <p>{props.name.slice(0,10)}{props.name.length>10 ?"...":''}</p>
     </div>
   );
 }

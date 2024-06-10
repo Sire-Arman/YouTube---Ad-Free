@@ -35,49 +35,49 @@ const Sidebar = ({ sidebar, category, setCategory }) => {
         />
         <Sidelink
           img={automobiles}
-          name={"automobiles"}
+          name={"Automots"}
           category={category}
           changeCategory={(id)=>setCategory(id)}
           id={2}
         />
         <Sidelink
           img={sports}
-          name={"sports"}
+          name={"Sports"}
           category={category}
           changeCategory={(id)=>setCategory(id)}
           id={17}
         />
         <Sidelink
           img={music}
-          name={"music"}
+          name={"Music"}
           category={category}
           changeCategory={(id)=>setCategory(id)}
           id={24}
         />
         <Sidelink
           img={entertainment}
-          name={"entertainment"}
+          name={"Entertainment"}
           category={category}
           changeCategory={(id)=>setCategory(id)}
           id={28}
         />
         <Sidelink
           img={tech}
-          name={"tech"}
+          name={"Tech"}
           category={category}
           changeCategory={(id)=>setCategory(id)}
           id={10}
         />
         <Sidelink
           img={blogs}
-          name={"blogs"}
+          name={"Blogs"}
           category={category}
           changeCategory={(id)=>setCategory(id)}
           id={22}
         />
         <Sidelink
           img={news}
-          name={"news"}
+          name={"News"}
           category={category}
           changeCategory={(id)=>setCategory(id)}
           id={25}
