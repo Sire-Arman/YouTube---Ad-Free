@@ -15,7 +15,7 @@ import megan from "../../assets/megan.png";
 import tom from "../../assets/tom.png";
 import "./Sidebar.css";
 import Sidelink from "./Sidelink";
-const Sidebar = ({ sidebar, category, setCategory }) => {
+const Sidebar = ({ sidebar, category, categoryHandler }) => {
   return (
     <div className={`sidebar ${sidebar ? "" : "small-sidebar"}`}>
       <div className="shortcut-link">
@@ -23,63 +23,63 @@ const Sidebar = ({ sidebar, category, setCategory }) => {
           img={home}
           name={"Home"}
           category={category}
-          changeCategory={(id)=>setCategory(id)}
+          changeCategory={(id)=>categoryHandler(id)}
           id={0}
         />
         <Sidelink
           img={game_icon}
           name={"Game"}
           category={category}
-          changeCategory={(id)=>setCategory(id)}
+          changeCategory={(id)=>categoryHandler(id)}
           id={20}
         />
         <Sidelink
           img={automobiles}
           name={"Automots"}
           category={category}
-          changeCategory={(id)=>setCategory(id)}
+          changeCategory={(id)=>categoryHandler(id)}
           id={2}
         />
         <Sidelink
           img={sports}
           name={"Sports"}
           category={category}
-          changeCategory={(id)=>setCategory(id)}
+          changeCategory={(id)=>categoryHandler(id)}
           id={17}
         />
         <Sidelink
           img={music}
           name={"Music"}
           category={category}
-          changeCategory={(id)=>setCategory(id)}
+          changeCategory={(id)=>categoryHandler(id)}
           id={24}
         />
         <Sidelink
           img={entertainment}
           name={"Entertainment"}
           category={category}
-          changeCategory={(id)=>setCategory(id)}
+          changeCategory={(id)=>categoryHandler(id)}
           id={28}
         />
         <Sidelink
           img={tech}
           name={"Tech"}
           category={category}
-          changeCategory={(id)=>setCategory(id)}
+          changeCategory={(id)=>categoryHandler(id)}
           id={10}
         />
         <Sidelink
           img={blogs}
           name={"Blogs"}
           category={category}
-          changeCategory={(id)=>setCategory(id)}
+          changeCategory={(id)=>categoryHandler(id)}
           id={22}
         />
         <Sidelink
           img={news}
           name={"News"}
           category={category}
-          changeCategory={(id)=>setCategory(id)}
+          changeCategory={(id)=>categoryHandler(id)}
           id={25}
         />
         <hr />

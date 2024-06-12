@@ -25,7 +25,7 @@ function Recommended() {
 
     <div className='recommended'>
       {data?data.map((item,index)=>{
-          return <Link to ={`/video/${item.snippet.categoryId}/${item.id}`}><Sidevideo key={index} 
+          return <Link to ={`/video/${item.snippet.categoryId}/${item.id}` }><Sidevideo key={index} 
           src ={item.snippet.thumbnails.medium.url}
           title={item.snippet.localized.title}
           channel={item.snippet.channelTitle}

@@ -5,30 +5,33 @@ import { API_KEY, converter, getTime } from "../../data";
 import axios from "axios";
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
+import Nothing from "./Nothing";
 
-const SearchFeed = ({ category,search, setSearch}) => {
-  const [data, setData] = useState([]);
-//     const [vidData, setVidData] = useState(null);
-//   const fetchData = async () => {
-//     const video_data_url = ``;
-//     const resp = await axios.get(video_data_url);
-//     const newData = resp.data;
-//     setVidData(newData.items);
-//     console.log(vidData[0]);
-//   };
+const SearchFeed = ({data, category}) => {
+  console.log(data)
+  // const [data, setData] = useState([]);
+  // const fetchData = async () => {
+  //   const video_list_url = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=US&videoCategoryId=${category}&key=${API_KEY}`;
+  //   const resp = await axios.get(video_list_url);
+  //   const newData = resp.data;
+  //   setData(newData.items);
+  //   // console.log("triggered")
+  //   // console.log(data[0]);
+  // };
+  // useEffect(() => {
+  //   fetchData();
+  //   console.log("second")
+  // }, [category]);
 
-  useEffect(()=>{
-    setData(search);
-    // console.log(search)
-    // console.log("triggered")
-  },[search])
+ 
 
 //   useEffect(() => {
 //     fetchData();
-//   }, [category]);
+//   }, [vidData]);
 
   return (
     <div className="feed">
+      {data?.length === 0 && <Nothing />}
       {data?data.map((item,index) => {
         return (
           <Card
@@ -44,7 +47,7 @@ const SearchFeed = ({ category,search, setSearch}) => {
             time={item.snippet.publishedAt}
           />
         );
-      }):"loea"}
+      }):""}
     </div>
   );
 };

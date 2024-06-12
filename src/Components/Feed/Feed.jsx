@@ -5,6 +5,7 @@ import { API_KEY, converter, getTime } from "../../data";
 import axios from "axios";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import Nothing from "../SearchFeed/Nothing";
 
 const Feed = ({ category}) => {
   const [data, setData] = useState([]);
@@ -22,6 +23,7 @@ const Feed = ({ category}) => {
 
   return (
     <div className="feed">
+      {data.length === 0 && <Nothing />}
       {data?data.map((item,index) => {
         return (
           <Card
